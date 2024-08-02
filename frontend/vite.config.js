@@ -1,24 +1,24 @@
 // vite.config.js
 
-import { defineConfig } from "vite";
-import polyfillNode from "rollup-plugin-polyfill-node";
+import { defineConfig } from 'vite';
+import polyfillNode from 'rollup-plugin-polyfill-node';
 
 export default defineConfig({
-  plugins: [polyfillNode()],
-  build: {
-    rollupOptions: {
-      plugins: [
-        polyfillNode(), // Ensure polyfillNode is added for the build
-      ],
-    },
-  },
+  plugins: [
+  ],
   resolve: {
     alias: {
-      // Alias for modules
-      // If other modules are needed to be aliased, you can do it here
+      // Add necessary module aliases here if needed
     },
   },
   define: {
-    global: {}, // Polyfill the global object
+    global: {}, // Provide a polyfill for the global object
+  },
+  build: {
+    rollupOptions: {
+      plugins: [
+        polyfillNode(), // Ensure Node.js polyfills are used in the build
+      ],
+    },
   },
 });
